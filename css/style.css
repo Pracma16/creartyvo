@@ -1,0 +1,231 @@
+:root{
+    --purpura: #9737B6;
+    --naranja: #E68A37;
+    --purpura-oscuro: #370954;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+
+html{
+    font-size: 62.5%;
+    box-sizing: border-box;
+    scroll-snap-type: y mandatory;
+}
+
+*, *:before, *:after{
+    box-sizing: inherit;
+}
+
+body {
+    text-decoration: none;
+    font-size: 16px;
+    margin: 0;
+    padding: 0;
+    font-family: "Nunito", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: weight;
+    font-style: normal;
+    overflow-x: hidden;   
+}
+
+.cortina-filtro{
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #9737B8;
+  z-index: 0;
+  opacity: .50;
+}
+
+main{
+  display: flex;
+  flex-direction: row;
+  justify-content: center; 
+  margin-inline: 5%;
+  position: relative;
+}
+
+.header-video{
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  margin: auto 0;
+}
+
+.header-content{
+  margin-top: 10%;
+}
+
+.container-logo{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo{
+  width: 30%;
+}
+
+#text-container{
+  font-size: 34px;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 5%;
+  color: white;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.container-enlaces{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  margin-top: 8%;
+  gap: 30px;
+  padding: 0;
+}
+
+.neon-bg-button {
+  font-size: 20px;
+  border: solid 1px rgba(65, 15, 60, 0.493);
+  border-radius: 25px;
+  padding: 5%;
+  list-style: none;
+  background-color: var(--purpura-oscuro);
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 0 5px #ffffff;
+  transition: background-color 2s, box-shadow 0.5s;
+  }
+
+.neon-bg-button:hover {
+  color: rgb(44, 7, 44); 
+  background-color: #ff9900;
+  box-shadow: 0 0 5px #E68A37, 0 0 10px #E68A37, 0 0 15px #E68A37, 0 0 20px #E68A37;
+  transition: background-color 1s, box-shadow 0.5s;
+}
+
+/* Boton flotante*/
+
+.floating-button {
+  background-color: #370954;
+  color: white;
+  padding: 15px 30px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  position: relative;
+  display: inline-block;
+  
+}
+
+.floating1:hover, .floating2:hover, .floating3:hover {
+  animation-play-state: paused;
+}
+
+  @keyframes elegant-move {
+
+
+    0% {
+      transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+      transform: translateY(0);
+    } 
+  }
+
+/*Trancisiones botones flotantes*/
+
+.floating1{
+  animation: elegant-move 6s ease-in-out infinite;
+  transition: animation 0.5s;
+
+}
+
+.floating2{
+  animation: elegant-move 7s ease-in-out infinite;
+  transition: animation 0.5s;
+}
+
+.floating3{
+  animation: elegant-move 6.5s ease-in-out infinite;
+  transition: animation 0.5s;
+} 
+
+footer{
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  gap: 30px;
+  margin-top: 7%; 
+  position: relative; 
+}
+
+footer img:hover{
+  box-shadow: 0 0 8px 10px rgba(255, 115, 0, 0.788);
+  border-radius: 50%;    
+  padding: 10%;             
+}
+
+/*Responsivos*/
+
+@media (max-width: 1024px) {
+  .container-enlaces {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .neon-bg-button {
+    font-size: 18px;
+    padding: 4%;
+  }
+
+  .floating-button {
+    padding: 12px 25px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 768px) {
+  .container-enlaces {
+    gap: 15px;
+  }
+
+  .neon-bg-button {
+    font-size: 16px;
+    padding: 3%;
+  }
+
+  .floating-button {
+    padding: 10px 20px;
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container-enlaces {
+    gap: 10px;
+  }
+
+
+  .neon-bg-button {
+    font-size: 14px;
+    padding: 2%;
+  }
+
+  .floating-button {
+    padding: 8px 15px;
+    font-size: 12px;
+  }
+}
+
+
+
