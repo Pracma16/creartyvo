@@ -12,9 +12,9 @@
   </head>
   <body>
     <div class="header-video">
-      <video onloadedmetadata="this .muted=true" autoplay loop>
-        <source src="video-tecnology.mp4">
-      </video>
+      <video id="miVideo" onloadedmetadata="this.muted=true; this.play();" autoplay loop>
+        <source src="video-tecnology.mp4" type="video/mp4">
+    </video>
     </div>
     <div class="cortina-filtro"></div>
     <main>
@@ -38,6 +38,3 @@
     <script src="Js/style.js"></script>
   </body>
 </html> 
-
-  
-
