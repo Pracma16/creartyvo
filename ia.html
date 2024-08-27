@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/css/diseño.css">
+        <title>Creartybot</title>
+    </head>
+    <body>
+        <div class="conten-bot">
+            <h1>Creartybot</h1>
+            <input type="text" id="inputText" placeholder="Escribe algo aquí..." value="________________________11 Responde con un saludo tomando el roll de un agente de marketing digital, teniendo en cuenta tu roll analiza el nombre de empresa que seria la primera palabra que escribo y la segunda palabra es el rubro de la empresa y de esta forma quiero que analices y me des una estrategia de marketing que puedo implementar de acuerdo a su nombre de empresa y rubro, basate exclusibamente al texto que se escriba antes del numero once que se encuentra al inicio de este prompt">
+            <button id="generateButton">Preguntar</button>
+            <div class="conten-respuesta">
+                <p class="respuesta" id="responseText"></p>
+            </div>
+           
+        </div>
+        <script type="importmap">
+            {
+            "imports": {
+                "@google/generative-ai": "https://esm.run/@google/generative-ai"
+            }
+            }
+        </script>
+        <script type="module">
+            import { GoogleGenerativeAI } from "@google/generative-ai";
+
+            // Reemplaza 'YOUR_API_KEY' con tu clave de API real
+            const API_KEY = 'AIzaSyDYxmexiX7EmNsgWDzgGwcqFPKmUNhdQEQ';
+            const genAI = new GoogleGenerativeAI(API_KEY);
+
+            document.getElementById('generateButton').addEventListener('click', async () => {
+                const inputText = document.getElementById('inputText').value;
+                const model = genAI.getGenerativeModel({ model: "gemini-1.5-pro-latest"});
+                const prompt = inputText;
+
+                try {
+                    const result = await model.generateContent(prompt);
+                    const response = await result.response;
+                    document.getElementById('responseText').innerText = response.text();
+                } catch (error) {
+                    console.error('Error al generar contenido:', error);
+                }
+            });
+        </script>
+    </body>
+</html>

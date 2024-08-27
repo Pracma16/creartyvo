@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/desarrollo.css">
+    <title>Desarrollo Creartyvo</title>
+</head>
+<body>
+    <main class="container-desarrollo">
+        <a href="/home.html">
+            <img class="flecha-atras" src="/utils/image/flecha2.png" alt="Flecha de regreso">
+        </a>
+
+        <div class="titulo-mapa">
+            <h1>Mapa Desarrollo Web</h1>
+        </div>
+
+        <div class="map-container">
+            <!-- Imagen del mapa -->
+            <img src="/utils/image/desarrollo/mapa2.png" alt="Mapa Interactivo" id="interactive-map">
+        
+            <div class="station" id="station-development" data-title="Desarrollo" data-content="Creartyvo convertimos ideas en sitios web funcionales y personalizados. Nuestro equipo de desarrollo crea páginas rápidas, seguras y adaptadas a tus necesidades, garantizando una experiencia de usuario excepcional. Con nosotros, tu presencia online cobra vida con un desarrollo web" data-video="\utils\view\desarrollo-video.mp4" >
+                <img src="/utils/image/desarrollo/desarrollo.png" alt="Desarrollo">
+                <span>Desarrollo</span>
+            </div>
+            <div class="station" id="station-seo" data-title="Seo" data-content="Optimizamos tu sitio web para que destaque en los motores de búsqueda. Nuestro enfoque en SEO garantiza que tu página sea visible, relevante, y atraiga tráfico de calidad. Desde la investigación de palabras clave hasta la optimización técnica, mejoramos tu presencia online para que tu negocio crezca." data-video="\utils\view\seo-video.mp4">
+                <img src="/utils/image/desarrollo/seo.png" alt="Seo">
+                <span>Seo</span>
+            </div>
+            <div class="station" id="station-design" data-title="Diseño" data-content="En Creartyvo, creamos diseños web únicos, alineados con la identidad de tu marca. Nos sumergimos en tus necesidades y transformamos tus ideas en una experiencia visual envolvente. Cada detalle es personalizado, asegurando que tu sitio web no solo atraiga, sino que conecte con tu público de manera auténtica. Con nosotros, tu diseño web se convierte en una poderosa extensión de tu marca" data-video="\utils\view\Diseño-video.mp4">
+                <img src="/utils/image/desarrollo/diseño.png" alt="Diseño">
+                <span>Diseño</span>
+            </div>
+            <div class="station" id="station-maintenance" data-title="Mantenimiento" data-content="Nos encargamos de que tu sitio web esté siempre funcionando al máximo. Realizamos mantenimiento constante, actualizando y optimizando tu plataforma para garantizar su seguridad, rendimiento y compatibilidad. Nos aseguramos de que tu sitio esté siempre actualizado y libre de problemas, permitiéndote enfocarte en lo que realmente importa: tu negocio" data-video="\utils\view\mantenimiento-video.mp4">
+                <img src="/utils/image/desarrollo/mantenimiento.png" alt="Mantenimiento">
+                <span>Mantenimiento</span>
+            </div>
+        </div>
+
+        <!-- Panel lateral de contenido dinámico -->
+        <div class="side-panel" id="side-panel">
+            <h2 id="panel-title">Título</h2>
+            <p id="panel-content">Descripción detallada sobre la estación seleccionada</p>
+            <video id="panel-video" controls>
+                <source src="" type="video/mp4">
+                Tu navegador no soporta el video.
+            </video>
+            <button id="close-panel">Cerrar</button>
+        </div>  
+    </main>
+    <script src="/Js/desarrollo.js"></script>
+    <script src="/Js/puntero.js"></script>
+</body>
+</html>

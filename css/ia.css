@@ -1,0 +1,24 @@
+body{
+    background: url(/utils/image/desarrollo/desarrollo-baner-ofice.png) ;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
+}
+
+.conten-bot{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.conten-respuesta{
+    background: #4d4949;
+    margin: 2% 20%;
+    padding: 2% 10%;
+    -webkit-box-shadow: -7px 4px 20px 0px rgba(128,38,128,1);
+    -moz-box-shadow: -7px 4px 20px 0px rgba(128,38,128,1);
+    box-shadow: -7px 4px 20px 0px rgba(128,38,128,1);
+    border-radius: 25px;
+
+}

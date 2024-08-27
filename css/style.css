@@ -1,7 +1,9 @@
 :root{
-    --purpura: #9737B6;
-    --naranja: #E68A37;
-    --purpura-oscuro: #370954;
+  --purpura: #9536B5;
+  --naranja: #E68A37;
+  --purpura-oscuro: #380955;
+  --purpura-vino: #3B1142;
+  --morazul: #6636B5;
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
@@ -31,15 +33,38 @@ body {
 .cortina-filtro{
   height: 100vh;
   width: 100vw;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   background: #9737B8;
   z-index: 0;
-  opacity: .50;
+  opacity: .30;
 }
 
-main{
+.logo-desarrollo{
+  width: 60px;
+  position: relative;  
+  margin-top: 2%;
+  margin-inline-start: 2%;
+}
+
+.logo-desarrollo:hover{
+  filter:brightness(130%);
+  margin-inline-start: 3%;
+}
+
+.baner-principal{
+  position: fixed;
+  background-image: url('/utils/image/Creartyvo-media/logos_creartyvo/fondo-portada.png'); 
+  background-position: center; 
+  background-repeat: no-repeat; 
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+}
+
+.home-contenedor{
   display: flex;
   flex-direction: row;
   justify-content: center; 
@@ -47,16 +72,8 @@ main{
   position: relative;
 }
 
-.header-video{
-  position: absolute;
-  width: 100%;
-  height: 100vh;
-  overflow: hidden;
-  margin: auto 0;
-}
-
 .header-content{
-  margin-top: 10%;
+  margin-top: 5%;
 }
 
 .container-logo{
@@ -84,8 +101,8 @@ main{
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-around;
-  margin-top: 8%;
+  justify-content: space-evenly;
+  margin-top: 5%;
   gap: 30px;
   padding: 0;
 }
@@ -124,40 +141,42 @@ main{
   
 }
 
-.floating1:hover, .floating2:hover, .floating3:hover {
-  animation-play-state: paused;
-}
 
-  @keyframes elegant-move {
+@keyframes elegant-move {
 
 
-    0% {
-      transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-10px);
-    }
-    100% {
-      transform: translateY(0);
-    } 
+  0% {
+    transform: translateY(0);
   }
+  50% {
+      transform: translateY(10px);
+  }
+  100% {
+    transform: translateY(0);
+  } 
+}
 
 /*Trancisiones botones flotantes*/
 
 .floating1{
-  animation: elegant-move 6s ease-in-out infinite;
+  animation: elegant-move 3s ease-in-out infinite;
   transition: animation 0.5s;
 
 }
 
 .floating2{
-  animation: elegant-move 7s ease-in-out infinite;
-  transition: animation 0.5s;
+  animation: elegant-move 4s ease-in-out infinite;
+  transition: animation 1s;
 }
 
 .floating3{
-  animation: elegant-move 6.5s ease-in-out infinite;
-  transition: animation 0.5s;
+  animation: elegant-move 5s ease-in-out infinite;
+  transition: animation 0.7s;
+} 
+
+.floating4{
+  animation: elegant-move 4.5s ease-in-out infinite;
+  transition: animation 0.3s;
 } 
 
 footer{

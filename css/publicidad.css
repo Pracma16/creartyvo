@@ -1,0 +1,583 @@
+:root{
+    --purpura: #9536B5;
+    --naranja: #E68A37;
+    --purpura-oscuro: #380955;
+    --purpura-vino: #3B1142;
+    --morazul: #6636B5;
+}
+
+@font-face {
+    font-family: "JFRocout";
+    src: url('/styles/fonts/JFRocOut.ttf');
+  }
+
+@font-face {
+    font-family: "JFRocSol";
+    src: url('/styles/fonts/JFRocSol.TTF');
+}
+
+html, body{
+    font-size: 16px;
+    font-family: "Nunito", sans-serif;
+    box-sizing: border-box;
+    scroll-snap-type: y mandatory;
+    height: 100vh;
+    overflow-x: hidden;
+    margin:auto 0;
+    padding: 0;
+}
+
+*, *:before, *:after{
+    box-sizing: inherit;
+}
+
+.container-publicidad{
+    position: fixed;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr;
+    background-image: url(/utils/image/publicidad/cueva3.png);
+    background-repeat: no-repeat;
+    background-size: cover; 
+    background-position: 50% top;
+}
+
+.flecha-atras{
+    width: 60px;
+    position: absolute;  
+    margin-top: 2%;
+    margin-inline-start: 2%;
+    z-index: 9;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.flecha-atras:hover {
+    transform: scale(1.1);
+}
+
+.titulo-roca{
+    font-family: "JFRocOut";
+    color: white;
+    font-weight: 100;
+    font-size: 25px;
+}
+
+/*popup rrss*/
+
+.conten-title-roca-paidMedia{
+    position: absolute;
+    margin: 8% 0%;
+    width: 30%;
+    text-align: center;
+}
+
+.conten-title-roca-rrss{
+    position: absolute;
+    margin: 8% 17%;
+    width: 30%;
+    text-align: center;
+}
+
+.container-rrss {
+   height: 100vh;
+}
+
+.centro-rrss img{
+    width: 50%;
+    margin: 40% 35%;
+    animation: floaty 3s ease-in-out infinite;
+    transition: 2s;
+}
+
+@keyframes floaty {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-30px); 
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.centro-rrss img:hover{
+    width: 60%;
+    transition: 1.5s;
+    margin: 15%;
+    margin-top: 20%;
+} 
+
+.centro-rrss img.active {
+    position: fixed;
+    z-index: 1000; 
+    transition: 0s ;
+    width: 30%;
+    margin-top: 10%;
+    margin-left: 5%;
+} 
+
+.popup-container-rrss {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(27, 2, 48, 0.589);
+    justify-content: flex-end;
+    align-items: center;
+    perspective: 1000px;
+}
+
+.popup-rrss {
+    position: relative;
+    width: 80%;
+    height: 70%;
+    max-width: 700px;
+    margin-inline-end: 9%;
+    padding: 20px;
+    border-radius: 8px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transform: translateY(-10%) rotateY(-30deg);
+    transition: transform 0.5s ease;
+    overflow: hidden; 
+}
+
+.popup-rrss::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('/utils/image/publicidad/rrss/redes.png');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.85;
+    filter: blur(1px) brightness(0.3); 
+    z-index: -1; 
+}
+
+.popup-rrss.open {
+    transform: translateY(0) rotateY(0);
+}
+
+.titles-publi {
+    text-align: center;
+    font-family: "JFRocSol";
+    color: var(--naranja);
+    font-weight: 100;
+    margin-bottom: 20px;
+}
+
+.conten-listas-publi {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.listas-publi {
+    font-size: 130%;
+    line-height: 1.9;
+    list-style-image: url(/utils/image/punta.png);
+    padding-left: 20px;
+    margin: 0;
+}
+
+.close-btn-rrss {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 50px;
+    cursor: pointer;
+}
+
+.isla-movil{
+    display: none;
+}
+
+/*PAID MADIA*/
+
+.container-paid-media{
+    height: 100vh;
+}
+
+.centro-paid-media img{
+    width: 50%;
+    margin: 40% 20%;
+    animation: float 3s ease-in-out infinite;
+    transition: 2s;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-30px); 
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+ .centro-paid-media img:hover{
+    width: 60%;
+    transition: 1.3s ;
+    margin: 20%;
+} 
+
+.centro-paid-media img.active {
+    transition: 0s ;
+    width: 30%;
+    margin-top: 10%;
+    margin-left: 15%;
+    position: fixed;
+    z-index: 1000; 
+}
+
+.popup-container,
+.popup-container-rrss {
+    z-index: 999; 
+}
+
+.popup-container {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;    
+    width: 100%;
+    height: 100%;
+    background: rgba(27, 2, 48, 0.589);
+    justify-content:baseline;
+    align-items: center;
+    perspective: 1000px;
+}
+
+.popup-m {
+    position: relative;
+    width: 80%;
+    height: 70%;
+    max-width: 700px;
+    margin-inline-end: 9%;
+    padding: 20px;
+    border-radius: 8px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-inline-start: 9%;
+    transform: translate(50%, 10%) rotateY(60deg);
+    transition: transform 0.5s ease;
+    overflow: hidden; 
+}
+
+.popup-m::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('/utils/image/publicidad/paid-media/medias.png');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.85;
+    filter: blur(1px) brightness(0.3);
+    z-index: -1;
+}
+
+.popup-m.open {
+    transform: rotateY(0);
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 50px;
+    cursor: pointer;
+} 
+
+/* @media (max-width: 1320px){
+    .centro-paid-media img{
+        width: 50%;
+        margin-top: 30%;
+        margin-inline-start: 20%;
+    }
+} */
+
+/* @media only screen and (min-width: 768px) and (max-width: 1023px){
+    .centro-rrss img{
+        width: 80%;
+        margin: 80% 6%;
+    }
+    .centro-paid-media img{
+        width: 60%;
+        margin-top: 30%;
+    }
+    .centro-paid-media img.active {
+        display: none;
+    }
+    .centro-rrss img.active{
+        display: none;
+    }
+} */
+/* 
+@media only screen and (min-width: 481px) and (max-width: 767px) {
+    .container-publicidad {
+        background: url(/utils/image/publicidad/Baner-movil-publicidad2.jpg);
+        background-repeat: no-repeat;
+        background-size:cover ;
+        background-attachment: scroll;
+        background-position: center;
+        cursor: none;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(2, 1fr);
+    }
+    .isla-movil{
+        display:flex;
+    }
+    .conten-isla-movil{
+        display: block;
+        flex-direction: column-reverse;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+    .conten-isla-movil img{
+        width: 50%;
+        margin: 25% 25%;
+        position:absolute;
+    }
+
+    .container-rrss{
+        height: auto;
+    }
+     
+    .centro-rrss img {
+        width: 40%;
+        margin: 53% 30%;
+        position: absolute;
+    }
+
+    .centro-rrss img.active {
+        display: none;
+    }
+
+    @keyframes floaty {
+        0% {
+            transform: translateY(0);
+        }
+        50% {
+            transform: translateY(-5px); 
+        }
+        100% {
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes float {
+        0% {
+            transform: translateY(0);
+        }
+        50% {
+            transform: translateY(-5px); 
+        }
+        100% {
+            transform: translateY(0);
+        }
+    }
+
+    .popup-rrss {
+        width: 80%;
+        transform: translate(-50%, -10%) rotateY(-30deg);
+    }
+
+    .centro-paid-media img {
+        width: 40%;
+        margin: 20% 30%;
+        position: absolute;
+    }
+
+    .centro-paid-media img.active {
+        display: none;
+    }
+
+    .popup-m {
+        width: 80%;
+        transform: translate(0%, 30%) rotateX(90deg);
+        margin: 20%;
+    }
+
+    .list-rrss li{
+        width: 200px;
+    }
+
+    .conten-list-rrss{
+        display: flex;
+        justify-content: center;
+        margin: 0 0 0 10%;
+        font-size: 20px;
+        width: 120px;
+    }
+    .list-rrss{
+        width: 120px;
+        top: 0%;
+        font-weight: 5;
+        font-size: 80%;
+        line-height: 100%;
+        list-style-image: url(/utils/image/punta.png);
+    }
+    .titulo-roca{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        font-size: 15px;
+    }
+    
+    .conten-title-roca-paidMedia{
+        position: absolute;
+        width: 100%;
+        text-align: center;
+    }
+    
+    .conten-title-roca-rrss{
+        position: absolute;
+        width: 70%;
+        text-align: center;
+        top: 65%;
+    }
+ 
+}   
+
+  */
+ 
+  @media only screen and (min-width: 1200px) {
+    body {
+      font-size: 18px;
+    }
+  }
+  
+  @media only screen and (min-width: 1024px) and (max-width: 1199px) {
+    body {
+      font-size: 17px;
+    }
+    .centro-paid-media img{
+        width: 90%;
+        margin: 70% 5%;
+    }
+    .centro-rrss img{
+        width: 90%;
+        margin: 66% 9%;
+    }
+    .titulo-roca{
+        font-size: 38px;
+    }
+   
+    .conten-title-roca-paidMedia{
+        margin: 14% 10%;
+    }
+    .conten-title-roca-rrss{
+        margin: 12% 15%;
+    } 
+    .container-publicidad {
+        grid-template-rows: repeat(2, 1fr);
+    }
+
+  }
+  
+  @media only screen and (min-width: 768px) and (max-width: 1023px) {
+    body {
+      font-size: 16px;
+    }
+    .centro-paid-media img{
+        width: 90%;
+        margin: 70% 5%;
+    }
+    .centro-rrss img{
+        width: 90%;
+        margin: 66% 9%;
+    }
+    .titulo-roca{
+        font-size: 30px;
+    }
+    .conten-title-roca-paidMedia{
+        margin: 14% 10%;
+    }
+    .conten-title-roca-rrss{
+        margin: 12% 15%;
+    } 
+  }
+  
+  @media only screen and (min-width: 481px) and (max-width: 767px) {
+    body {
+      font-size: 15px;
+    }
+    .centro-paid-media img{
+        width: 90%;
+        margin: 70% 5%;
+    }
+    .centro-rrss img{
+        width: 90%;
+        margin: 67% 5%;
+    }
+    .conten-title-roca-paidMedia{
+        margin: 8% 12%;
+    }
+    .conten-title-roca-rrss{
+        margin: 8% 12%;
+    } 
+  }
+
+  @media only screen and (min-width: 320px) and (max-width: 480px) {
+    body {
+      font-size: 14px;
+    }
+    .centro-paid-media img{
+        width: 85%;
+        margin: 110% 10%;
+    }
+    .centro-rrss img{
+        width: 85%;
+        margin: 107% 17%;
+    }
+    .titulo-roca{
+        font-size: 20px;
+    }
+    .conten-title-roca-paidMedia{
+        margin: 18% 8%;
+    }
+    .conten-title-roca-rrss{
+        margin: 18% 16%;
+    }
+  }
+  @media only screen and (max-width: 319px) {
+    body {
+      font-size: 13px;
+    }
+    .centro-paid-media img{
+        width: 85%;
+        margin: 110% 10%;
+    }
+    .centro-rrss img{
+        width: 80%;
+        margin: 107% 15%;
+    }
+    .titulo-roca{
+        font-size: 16px;
+    }
+    .conten-title-roca-paidMedia{
+        margin: 15% 7%;
+    }
+    .conten-title-roca-rrss{
+        margin: 15% 14%;
+    }
+  }
+  

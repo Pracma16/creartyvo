@@ -20,8 +20,15 @@ setInterval(changeText, 8000); // Cambia el texto cada 8 segundos
 
 //codigo video baner fondo
 
-window.addEventListener('load', function() {
-    var video = document.getElementById('miVideo');
-    video.currentTime = 0;
-    video.play();
-});
+// window.addEventListener('load', function() {
+//     var video = document.getElementById('miVideo');
+//     video.currentTime = 0;
+//     video.play();
+// });
+
+
+
+
+
+
+

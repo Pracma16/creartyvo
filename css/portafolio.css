@@ -1,0 +1,132 @@
+:root {
+    --naranja: #E68A37;
+}
+
+@font-face {
+    font-family: "JFRocout";
+    src: url('/styles/fonts/JFRocOut.ttf');
+}
+
+@font-face {
+    font-family: "JFRocSol";
+    src: url('/styles/fonts/JFRocSol.TTF');
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    position: relative; 
+    height: 100vh;
+    overflow-x: hidden;
+    scroll-snap-type: y mandatory;
+}
+
+.fondo-portafolio {
+    position: fixed;
+    background-image: url('/utils/image/Creartyvo-media/logos_creartyvo/fondo-portafolio.png'); 
+    background-position: center; 
+    background-repeat: no-repeat; 
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    min-height: 100vh;
+}
+
+.flecha-atras {
+    width: 60px;
+    position: absolute;  
+    top: 20px;
+    left: 20px;
+    z-index: 1000;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.flecha-atras:hover {
+    transform: scale(1.1);
+}
+
+.portafolio-contenedor {
+    position: absolute;
+    padding: 5%;
+}
+
+.contenedor-titulo {
+    font-family: "JFRocout";
+    color: var(--naranja);
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.titulo-principal {
+    font-size: 1.9rem;
+    text-align: center;
+    padding: 2%;
+}
+
+
+@keyframes floaty {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-30px); 
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes expand {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.5); }
+}
+
+.floating1, .floating2, .floating3, .floating4 {
+    position: relative;
+    animation: floaty 3s ease-in-out infinite;
+}
+
+.floating1:hover, .floating2:hover, .floating3:hover, .floating4:hover {
+    animation: expand 1s forwards;
+}
+
+.contenedor-puertas {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.contenedor-puertas a {
+    flex: 1 1 calc(25% - 40px);
+    display: flex;
+    justify-content: center;
+}
+
+.contenedor-puertas img {
+    width: 100%;
+    height: auto;
+    max-width: 300px;
+}
+
+@media (max-width: 1050px) {
+    .contenedor-puertas a {
+        flex: 1 1 calc(50% - 20px);
+    }
+}
+
+@media (max-width: 480px) {
+    .contenedor-puertas a {
+        flex: 1 1 100%;
+    }
+    .titulo-principal{
+        padding: 12%;
+    }
+    
+}

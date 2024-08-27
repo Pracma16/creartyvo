@@ -1,0 +1,48 @@
+body, html {
+    cursor: none; 
+    overflow: hidden;
+}
+
+.trail {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-size: 20px;
+    pointer-events: none;
+    animation: fade 1s forwards;  
+    z-index: 10000;
+}
+
+.trail.purple {
+    background-image: url('/utils/image/publicidad/starpurple24.png'); /* Imagen de estrella púrpura */
+}
+
+.trail.orange {
+    background-image: url('/utils/image/publicidad/starorange24.png'); /* Imagen de estrella naranja */
+}
+
+#robot-cursor {
+    position: absolute;
+    width: 60px;
+    height: 40px;
+    background: url('/utils/image/publicidad/superbot2.png') no-repeat center center;
+    background-size: cover;
+    pointer-events: none;
+    z-index: 10000;
+}
+
+@media (max-width: 768px){
+    #robot-cursor{
+        display: none;
+    }
+}
+
+@keyframes fade {
+    to {
+        opacity: 0;
+        transform: scale(2);
+    }
+}
+
+
