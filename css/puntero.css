@@ -1,7 +1,23 @@
 body, html {
     cursor: none; 
-    overflow: hidden;
 }
+
+@media only screen and (min-width: 1200px) {
+    body {
+        overflow: hidden;
+    }
+  }
+@media only screen and (max-width: 1200px) {
+    body {
+        cursor: auto;
+    }
+    .trail{
+        display: none;
+    }
+    #robot-cursor{
+        display: none;
+    }
+}  
 
 .trail {
     position: absolute;
@@ -15,11 +31,11 @@ body, html {
 }
 
 .trail.purple {
-    background-image: url('/utils/image/publicidad/starpurple24.png'); /* Imagen de estrella púrpura */
+    background-image: url('/utils/image/publicidad/starpurple24.png'); 
 }
 
 .trail.orange {
-    background-image: url('/utils/image/publicidad/starorange24.png'); /* Imagen de estrella naranja */
+    background-image: url('/utils/image/publicidad/starorange24.png'); 
 }
 
 #robot-cursor {

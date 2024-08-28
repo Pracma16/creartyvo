@@ -34,7 +34,7 @@ body {
     font-family: Arial, sans-serif;
     height: 100vh;
     background-color: aliceblue;
-    overflow-x: hidden; /* Evitar el desbordamiento horizontal */
+    overflow-x: hidden; 
 }
 
 .flecha-atras {
