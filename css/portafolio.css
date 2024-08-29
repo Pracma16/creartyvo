@@ -1,4 +1,4 @@
-:root {
+/* :root {
     --naranja: #E68A37;
 }
 
@@ -19,10 +19,19 @@
 html, body {
     margin: 0;
     padding: 0;
-    position: relative; 
     height: 100vh;
     overflow-x: hidden;
     scroll-snap-type: y mandatory;
+}
+
+.conten-portafolio{
+    position: fixed;
+    display: flex;
+    align-items: center;
+    flex-direction: column-reverse;
+    width: 100%;
+    height: 100vh;
+    top: 0;
 }
 
 .fondo-portafolio {
@@ -33,7 +42,7 @@ html, body {
     background-size: cover;
     width: 100%;
     height: 100%;
-    min-height: 100vh;
+    
 }
 
 .flecha-atras {
@@ -51,7 +60,12 @@ html, body {
 }
 
 .portafolio-contenedor {
-    position: absolute;
+    padding: 20px;
+    margin: 0 auto;
+    max-width: 1200px;
+    width: 100%;
+    min-height: 70vh; 
+    position: relative;
     padding: 5%;
 }
 
@@ -69,6 +83,21 @@ html, body {
     padding: 2%;
 }
 
+footer{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    gap: 40px;
+    margin-top: auto; 
+    position: fixed; 
+  }
+  
+
+footer img:hover{
+    box-shadow: 0 0 8px 10px rgba(255, 115, 0, 0.788);
+    border-radius: 50%;    
+    padding: 10%;             
+  }
 
 @keyframes floaty {
     0% {
@@ -129,4 +158,175 @@ html, body {
         padding: 12%;
     }
     
+} */
+
+
+:root {
+    --naranja: #E68A37;
+}
+
+@font-face {
+    font-family: "JFRocout";
+    src: url('/styles/fonts/JFRocOut.ttf');
+}
+
+@font-face {
+    font-family: "JFRocSol";
+    src: url('/styles/fonts/JFRocSol.TTF');
+}
+
+*, *:before, *:after {
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow-x: hidden;
+}
+
+.fondo-portafolio {
+    background-image: url('/utils/image/Creartyvo-media/logos_creartyvo/fondo-portafolio.png'); 
+    background-position: center; 
+    background-repeat: no-repeat; 
+    background-size: cover;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.flecha-atras {
+    width: 60px;
+    position: absolute;  
+    top: 20px;
+    left: 20px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.flecha-atras:hover {
+    transform: scale(1.1);
+}
+
+.conten-portafolio {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.portafolio-contenedor {
+    max-width: 1200px;
+    width: 100%;
+    padding: 20px;
+    text-align: center;
+}
+
+.contenedor-titulo {
+    font-family: "JFRocout";
+    color: var(--naranja);
+    margin-bottom: 20px;
+}
+
+.titulo-principal {
+    font-size: 2rem;
+    margin: 0;
+}
+
+.contenedor-puertas {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.contenedor-puertas a {
+    flex: 1 1 calc(25% - 40px);
+    display: flex;
+    justify-content: center;
+}
+
+.contenedor-puertas img {
+    width: 100%;
+    height: auto;
+    max-width: 250px;
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    padding: 20px;
+    width: 100%;
+    margin-top: 40px;
+}
+
+footer img {
+    width: 30px;
+    transition: transform 0.3s ease;
+}
+
+footer img:hover {
+    transform: scale(1.2);
+    box-shadow: 0 0 8px 10px rgba(255, 115, 0, 0.8);
+    border-radius: 50%;    
+    padding: 10%;             
+}
+
+@keyframes floaty {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
+}
+
+@keyframes expand {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.1); }
+}
+
+.floating1, .floating2, .floating3, .floating4 {
+    animation: floaty 3s ease-in-out infinite;
+}
+
+.floating1:hover, .floating2:hover, .floating3:hover, .floating4:hover {
+    animation: expand 1s forwards;
+}
+
+@media (max-width: 1050px) {
+    .contenedor-puertas a {
+        flex: 1 1 calc(50% - 20px);
+    }
+}
+
+@media (max-width: 768px) {
+    .contenedor-titulo {
+        font-size: 1.5rem;
+    }
+
+    .contenedor-puertas a {
+        flex: 1 1 calc(50% - 20px);
+    }
+}
+
+@media (max-width: 480px) {
+    .contenedor-puertas a {
+        flex: 1 1 100%;
+    }
+
+    .titulo-principal {
+        font-size: 1.5rem;
+        padding: 10%;
+    }
+
+    footer {
+        flex-direction: row;
+    }
+
+    footer img {
+        margin-bottom: 10px;
+    }
 }

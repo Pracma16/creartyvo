@@ -67,14 +67,14 @@ html, body{
 
 .conten-title-roca-paidMedia{
     position: absolute;
-    margin: 8% 0%;
+    margin: 5% 5%;
     width: 30%;
     text-align: center;
 }
 
 .conten-title-roca-rrss{
     position: absolute;
-    margin: 8% 17%;
+    margin: 5% 15%;
     width: 30%;
     text-align: center;
 }
@@ -179,7 +179,7 @@ html, body{
 .popup-rrss {
     position: relative;
     width: 80%;
-    height: 70%;
+    height: 90%;
     max-width: 700px;
     margin-inline-end: 9%;
     padding: 20px;
@@ -197,7 +197,7 @@ html, body{
 .popup-m {
     position: relative;
     width: 80%;
-    height: 70%;
+    height: 90%;
     max-width: 700px;
     margin-inline-end: 9%;
     padding: 20px;
@@ -223,8 +223,8 @@ html, body{
     background-image: url('/utils/image/publicidad/rrss/redes.png');
     background-size: cover;
     background-position: center;
-    opacity: 0.85;
-    filter: blur(1px) brightness(0.3); 
+    opacity: 1.85;
+    filter: blur(1px) brightness(0.1);
     z-index: -1; 
 }
 
@@ -238,8 +238,8 @@ html, body{
     background-image: url('/utils/image/publicidad/paid-media/medias.png');
     background-size: cover;
     background-position: center;
-    opacity: 0.85;
-    filter: blur(1px) brightness(0.3);
+    opacity: 1.85;
+    filter: blur(1px) brightness(0.1);
     z-index: -1;
 }
 
@@ -271,6 +271,45 @@ html, body{
     list-style-image: url(/utils/image/punta.png);
     padding-left: 20px;
     margin: 0;
+}
+
+.comentar{
+    text-align: center;
+    font-size: 130%;
+}
+
+.accion-whatsapp{
+    background: var(--purpura-oscuro);
+    padding: 2%;
+    border-radius: 25px ;
+    border: .5px solid white;
+    transition: box-shadow 0.3s ease;
+    cursor: pointer;
+    box-shadow: 0 0 20px rgba(255, 136, 0, 0.863);
+    animation: pulse 2s infinite;
+}
+
+.accion-whatsapp:hover{
+    font-weight:600 ;
+    background-color: var(--naranja);
+    
+}
+
+.accion-whatsapp a{
+    color: white;
+    text-decoration: none;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 10px rgba(255, 87, 51, 0.7);
+    }
+    50% {
+        box-shadow: 0 0 20px rgba(255, 87, 51, 1);
+    }
+    100% {
+        box-shadow: 0 0 10px rgba(255, 87, 51, 0.7);
+    }
 }
 
 .close-btn {
@@ -364,6 +403,9 @@ html, body{
     .conten-title-roca-rrss{
         margin: 8% 12%;
     } 
+    .titulo-roca{
+        font-size: 22px;
+    }
   }
 
   @media only screen and (min-width: 320px) and (max-width: 480px) {
@@ -379,7 +421,7 @@ html, body{
         margin: 107% 17%;
     }
     .titulo-roca{
-        font-size: 20px;
+        font-size: 15px;
     }
     .conten-title-roca-paidMedia{
         margin: 18% 8%;
@@ -390,7 +432,7 @@ html, body{
   }
   @media only screen and (max-width: 319px) {
     body {
-      font-size: 13px;
+      font-size: 16px;
     }
     .centro-paid-media img{
         width: 85%;
@@ -401,7 +443,7 @@ html, body{
         margin: 107% 15%;
     }
     .titulo-roca{
-        font-size: 16px;
+        font-size: 13px;
     }
     .conten-title-roca-paidMedia{
         margin: 15% 7%;

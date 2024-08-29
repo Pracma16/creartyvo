@@ -1,5 +1,5 @@
 body{
-    background: url(/utils/image/desarrollo/desarrollo-baner-ofice.png) ;
+    background: url(/utils/image/ia/fondo-ia.png) ;
     background-repeat: no-repeat;
     background-size: cover;
     color: white;
@@ -21,4 +21,18 @@ body{
     box-shadow: -7px 4px 20px 0px rgba(128,38,128,1);
     border-radius: 25px;
 
+}
+
+.flecha-atras {
+    width: 50px;
+    position: absolute;
+    margin-top: 2%;
+    margin-inline-start: 2%;
+    z-index: 9;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.flecha-atras:hover {
+    transform: scale(1.1);
 }

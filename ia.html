@@ -3,18 +3,26 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="/css/diseño.css">
+        <link rel="stylesheet" href="/css/ia.css">
         <title>Creartybot</title>
     </head>
     <body>
+       <header>
+            <a href="/home.html">
+                <img class="flecha-atras" src="/utils/image/flecha.png" alt="Flecha de regreso">
+            </a>
+       </header>
         <div class="conten-bot">
             <h1>Creartybot</h1>
-            <input type="text" id="inputText" placeholder="Escribe algo aquí..." value="________________________11 Responde con un saludo tomando el roll de un agente de marketing digital, teniendo en cuenta tu roll analiza el nombre de empresa que seria la primera palabra que escribo y la segunda palabra es el rubro de la empresa y de esta forma quiero que analices y me des una estrategia de marketing que puedo implementar de acuerdo a su nombre de empresa y rubro, basate exclusibamente al texto que se escriba antes del numero once que se encuentra al inicio de este prompt">
+            <input type="text" id="inputText" placeholder="Escribe algo aquí..." value="">
             <button id="generateButton">Preguntar</button>
             <div class="conten-respuesta">
                 <p class="respuesta" id="responseText"></p>
             </div>
-           
+           <!-- <div class="">
+                <h2>Escribe el nombre de tu empresa y el rubro separado de un guion - Ejemplo: </h2>
+                <h3>Nombre de empresa:  CafeTe - Bebidas  </h3>
+           </div> -->
         </div>
         <script type="importmap">
             {
@@ -46,3 +54,7 @@
         </script>
     </body>
 </html>
+
+
+<!-- prompt inicial
+________________________11 Responde con un saludo tomando el roll de un agente de marketing digital, teniendo en cuenta tu roll analiza el nombre de la empresa que seria la primera palabra que escribo y la segunda palabra es el rubro de la empresa, quiero que analices y me des una estrategia de marketing que puedo implementar de acuerdo a su nombre de empresa y rubro que escribo al inicio de este mensaje, basate exclusivamente al texto que se escriba antes del numero once que se encuentra al inicio de este mensaje -->

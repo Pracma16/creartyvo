@@ -51,9 +51,9 @@ body {
     transform: scale(1.1);
 }
 
-/* Estilo para el título centrado y responsivo */
 .titulo-mapa h1{
     position: absolute;
+    font-family: "JFRocOut";
     top: 30px;
     left: 50%;
     transform: translateX(-50%);
@@ -77,24 +77,76 @@ body {
     overflow: hidden;
 }
 
-/* Imagen del mapa */
 #interactive-map {
+    position: fixed;
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
 
-/* Estilos para las estaciones del mapa */
 .station {
     position: absolute;
-    /* background-color: rgba(255, 255, 255, 0.8); */
     border-radius: 50%;
     cursor: pointer;
     transform: translate(-50%, -50%);
     transition: transform 0.3s ease;
     display: flex;
-    align-items: center;
+    align-items:center;
     justify-content: center;
+    flex-direction: column-reverse;
+    
+}
+
+.name-station{
+    background-color: #5508859c;
+    color: white;
+    font-size: 220%;
+    text-shadow: 1px 5px 8px rgba(0,0,0,0.98);
+    margin: 0%;
+    border-radius: 25%;
+    box-shadow: 0 0 10px 10px #5508859c;
+}
+
+.image-container {
+width: 10%; /* Ajusta el tamaño de la imagen según sea necesario */
+height: 25%;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+.image-container img {
+width: 100%;
+height: auto;
+border-radius: 10px;
+position: relative;
+z-index: 1; /* Asegura que la imagen esté por encima del efecto */
+}
+
+.image-container::before {
+content: '';
+position: absolute;
+bottom: -15%; /* Ubica el efecto en la parte inferior de la imagen */
+left: 50%;
+transform: translateX(-50%);
+width: 100%;
+height: 80%;
+background: linear-gradient(65deg, rgb(155, 8, 155), rgba(255, 255, 255, 0.76), rgb(128, 8, 128));
+filter: blur(10px);
+border-radius: 50%;
+z-index: 0; /* Asegura que el efecto esté detrás de la imagen */
+animation: rotate 3s infinite linear;
+transform-style: preserve-3d;
+perspective: 1000px;
+}
+
+@keyframes rotate {
+0% {
+    transform: translateX(-50%) rotateX(30deg) rotateZ(0deg);
+}
+100% {
+    transform: translateX(-50%) rotateX(30deg) rotateZ(360deg);
+}
 }
 
 .station img {
@@ -144,7 +196,7 @@ body {
     width: 100%;
     max-width: 400px;
     height: 100%;
-    background-color: #fff;
+    background-color: rgb(208, 190, 209);
     box-shadow: -2px 0 5px rgba(0, 0, 0, 0.3);
     transition: right 0.3s ease;
     z-index: 10;
@@ -176,7 +228,7 @@ body {
     display: block;
     width: 100%;
     padding: 10px;
-    background-color: #333;
+    background-color: var(--purpura-oscuro);
     color: #fff;
     border: none;
     border-radius: 5px;
@@ -184,11 +236,28 @@ body {
 }
 
 #close-panel:hover {
-    background-color: #555;
+    background-color: var(--naranja);
 }
 
 /* Responsividad */
-@media (max-width: 768px) {
+
+
+@media only screen and (min-width: 1023px) and (max-width: 1199px){
+    .image-container{
+        width: 22%;
+        height: 18%;
+    }
+}
+
+
+@media only screen and (min-width: 768px) and (max-width: 1023px){
+    .image-container{
+        width: 18%;
+        height: 13%;    
+    }
+}
+
+@media only screen and (min-width: 481px) and (max-width: 767px){
     .titulo-mapa h1{
         top: 2%;
     }
@@ -197,7 +266,7 @@ body {
     }
 
     .station img{
-        width: 80px;
+        width: 100px;
     }
 
     #panel-title {
@@ -206,5 +275,25 @@ body {
 
     #panel-content {
         font-size: 14px;
+    }
+    .image-container{
+        width: 18%;
+        height: 13%;    
+    }
+    #station-development{
+        left: 71%;
+    }
+}
+
+@media only screen and (min-width: 320px) and (max-width: 480px){
+    .image-container{
+        width: 25%;
+        height: 15%;
+    }
+    .station img{
+        width: 120px;
+    }
+    #station-development{
+        left: 71%;
     }
 }
