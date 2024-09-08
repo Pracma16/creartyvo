@@ -92,7 +92,7 @@ header {
 
 .botones-menu {
     display: flex;
-    flex-wrap: wrap; /* Permite que los botones se ajusten en varias líneas si es necesario */
+    flex-wrap: wrap; 
     justify-content: center;
     padding: 1rem;
     gap: 1rem;
@@ -118,7 +118,6 @@ header {
     color: white;
 }
 
-/* Media queries para ajustar el diseño en pantallas más pequeñas */
 @media (max-width: 768px) {
     .conten-bot {
         padding: 1rem;
@@ -151,29 +150,27 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: 9999; /* Asegúrate de que el spinner esté sobre todos los demás elementos */
-    visibility: hidden; /* Inicialmente oculto */
+    z-index: 9999; 
+    visibility: hidden; 
     opacity: 0;
     transition: opacity 0.3s ease;
 }
 
-/* Spinner */
+/* Spinner loading */
 .spinner {
-    border: 8px solid rgba(255, 255, 255, 0.2); /* Fondo del spinner */
+    border: 8px solid rgba(255, 255, 255, 0.2); 
     border-radius: 50%;
-    border-top: 8px solid #ff7920; /* Color del spinner */
+    border-top: 8px solid #ff7920; 
     width: 50px;
     height: 50px;
     animation: spin 1s linear infinite;
 }
 
-/* Animación del spinner */
 @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
 }
 
-/* Mostrar el spinner */
 .spinner-overlay.show {
     visibility: visible;
     opacity: 1;

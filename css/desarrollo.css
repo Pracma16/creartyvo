@@ -140,6 +140,30 @@ transform-style: preserve-3d;
 perspective: 1000px;
 }
 
+footer {
+    position: absolute;
+    bottom: 2%;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    width: 100%;
+    
+}
+
+footer img {    
+    width: 100%;
+    transition: transform 0.3s ease;
+}
+
+footer img:hover {
+    transform: scale(1.2);
+    box-shadow: 0 0 8px 10px rgba(255, 115, 0, 0.788);
+    border-radius: 50%;    
+    padding: 10%;             
+}
+
+
+
 @keyframes rotate {
 0% {
     transform: translateX(-50%) rotateX(30deg) rotateZ(0deg);
