@@ -1,0 +1,196 @@
+<!-- <!DOCTYPE html>
+<html lang="es">
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="description" content="Creartyvo ofrece soluciones innovadoras en publicidad, desarrollo web y diseños tematicos para empresas, emprendimientos y negocios en general.">
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+      <link rel="stylesheet" href="css/style.css">
+      <link rel="icon" href="/utils/image/home/creartybot.png" type="image/png">
+      <title>Creartyvo</title>
+  </head>
+  <body>
+    <div class="baner-principal"></div>
+    <div class="cortina-filtro"></div>
+    <main class="home-contenedor">
+      <div class="header-content">
+        <div class="container-logo ">
+          <img class="logo" src="/utils/image/home/creartyvo.png"  alt="titulo creartyvo">
+          <div id="text-container">Hoy es tu momento, escala al siguiente nivel</div>
+        </div>  
+        <ul class="container-enlaces">
+          <li class="neon-bg-button floating-button floating1"><a href="/publicidad.html">¿BUSCAS VENTAS?</a></li>
+          <li class="neon-bg-button floating-button floating2"><a href="/desarrollo.html">¿QUIERES UNA WEB?</a></li>
+          <li class="neon-bg-button floating-button floating3"><a href="/portafolio.html">PORTAFOLIO WEB</a></li>
+        </ul>
+      </div>
+      <div class="creartybot">
+        <a href="/ia.html"><img src="/utils/image/ia/creartybot.png" alt="bot inteligencia artificial"></a>
+      </div>
+    </main>
+    <footer>
+      <a href="https://www.instagram.com/creartyvo/" target="_blank" ><img src="/utils/image/home/instagram.png" alt="Enlace instagram creartyvo"></a>
+      <a href="https://www.facebook.com/JavierAndres1685?locale=es_LA" target="_blank"><img src="/utils/image/home/facebook.png" alt="Enlace facebook creartyvo"></a>
+      <a href="https://web.whatsapp.com/send?phone=5492954666712&text=Hola me comunico desde la web, quisiera recibir información por favor." target="_blank"><img src="/utils/image/home/whatsapp.png" alt="Enlace whatsapp creartyvo"></a>
+      <a href="https://www.linkedin.com/in/javier-programador/" target="_blank"><img src="/utils/image/home/linkedin.png" alt="Enlace linkedin creartyvo "></a> 
+    </footer>
+    <script src="Js/style.js" defer></script>
+  </body>
+</html>  -->
+
+
+
+
+
+
+<!-- ia 
+ 
+
+<script type="module">
+        import { GoogleGenerativeAI } from "@google/generative-ai";
+
+        const API_KEY = 'AIzaSyDYxmexiX7EmNsgWDzgGwcqFPKmUNhdQEQ';
+        const genAI = new GoogleGenerativeAI(API_KEY);
+
+        const inputTextElement = document.getElementById('inputText');
+        const responsesContainer = document.getElementById('responsesContainer');
+        const spinnerOverlay = document.getElementById('spinnerOverlay');
+        const generateButton = document.getElementById('generateButton');
+        const refreshButton = document.getElementById('refreshButton');
+        const resetButton = document.getElementById('resetButton');
+        const saveButton = document.getElementById('saveButton');
+        const copyButton = document.getElementById('copyButton');
+        
+        function saveAsPDF() {
+            const inputText = inputTextElement.value;
+            const responses = Array.from(responsesContainer.getElementsByTagName('p')).map(p => p.innerText).join('\n');
+
+            const doc = new jsPDF();
+
+            doc.setFontSize(12);
+            doc.text(`Entrada: ${inputText}`, 10, 10);
+            doc.text(`Respuesta:\n${responses}`, 10, 20);
+
+            doc.save('respuesta.pdf');
+        }
+        
+        generateButton.addEventListener('click', async () => {
+            const inputText = inputTextElement.value;
+            const model = genAI.getGenerativeModel({ model: "gemini-1.5-pro-latest"});
+            const prompt = inputText;
+
+            try {
+                const result = await model.generateContent(prompt);
+                const response = await result.response;
+                const responseText = response.text();
+
+                const responseParagraph = document.createElement('p');
+                responseParagraph.innerText = `Entrada: ${inputText}\nRespuesta: ${responseText}`;
+                responsesContainer.appendChild(responseParagraph);
+
+                saveConversation(inputText, responseText);
+            } catch (error) {
+                console.error('Error al generar contenido:', error);
+            }
+        });
+
+        refreshButton.addEventListener('click', () => {
+            location.reload();
+        });
+
+        resetButton.addEventListener('click', () => {
+            inputTextElement.value = '';
+            responsesContainer.innerHTML = '';
+            localStorage.removeItem('savedConversation');
+        });
+
+        generateButton.addEventListener('click', async () => {
+            spinnerOverlay.classList.add('show');
+
+            const inputText = inputTextElement.value;
+            const model = genAI.getGenerativeModel({ model: "gemini-1.5-pro-latest" });
+            const prompt = inputText;
+
+            try {
+                const result = await model.generateContent(prompt);
+                const response = await result.response;
+                const responseText = response.text();
+
+                const responseParagraph = document.createElement('p');
+                responseParagraph.innerText = `Entrada: ${inputText}\nRespuesta: ${responseText}`;
+                responsesContainer.appendChild(responseParagraph);
+
+                saveConversation(inputText, responseText);
+            } catch (error) {
+                console.error('Error al generar contenido:', error);
+            } finally {
+                spinnerOverlay.classList.remove('show');
+            }
+        });
+
+        saveButton.addEventListener('click', () => {
+            const inputText = inputTextElement.value;
+            const responses = Array.from(responsesContainer.getElementsByTagName('p')).map(p => p.innerText);
+            localStorage.setItem('savedConversation', JSON.stringify(responses));
+            alert('Conversación guardada temporalmente.');
+        });
+
+        copyButton.addEventListener('click', () => {
+            const range = document.createRange();
+            range.selectNode(responsesContainer);
+            window.getSelection().removeAllRanges();
+            window.getSelection().addRange(range);
+
+            try {
+                document.execCommand('copy');
+                alert('Texto copiado al portapapeles.');
+            } catch (err) {
+                console.error('Error al copiar al portapapeles:', error);
+            }
+
+            window.getSelection().removeAllRanges(); // Remove selection after copy
+        });
+
+        saveButton.addEventListener('click', () => {
+            const responses = Array.from(responsesContainer.getElementsByTagName('p'))
+                                .map(p => p.innerpdf)
+                                .join('\n'); // Join all responses with a newline
+
+            // Crear un blob con el contenido de las respuestas
+            const blob = new Blob([responses], { type: 'text/plain' });
+            
+            // Crear una URL para el blob
+            const url = URL.createObjectURL(blob);
+            
+            // Crear un enlace temporal para descargar el archivo
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'respuestas.txt'; // Nombre del archivo a descargar
+            document.body.appendChild(a);
+            a.click();
+            
+            // Limpiar
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url); // Liberar el objeto URL
+        });
+
+        window.addEventListener('load', () => {
+            const savedConversation = JSON.parse(localStorage.getItem('savedConversation'));
+            if (savedConversation) {
+                savedConversation.forEach(item => {
+                    const responseParagraph = document.createElement('p');
+                    responseParagraph.innerText = item;
+                    responsesContainer.appendChild(responseParagraph);
+                });
+            }
+        });
+
+        function saveConversation(input, response) {
+            const savedConversation = JSON.parse(localStorage.getItem('savedConversation')) || [];
+            savedConversation.push(`Entrada: ${input}\nRespuesta: ${response}`);
+            localStorage.setItem('savedConversation', JSON.stringify(savedConversation));
+        }
+    </script>
+     -->

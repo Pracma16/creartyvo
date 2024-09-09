@@ -24,7 +24,7 @@ html, body {
 }
 
 .fondo-portafolio {
-    background-image: url('/utils/image/Creartyvo-media/logos_creartyvo/fondo-portafolio.png'); 
+    background-image: url('/utils/image/portafolio-img/fondo-portafolio.png'); 
     background-position: center; 
     background-repeat: no-repeat; 
     background-size: cover;

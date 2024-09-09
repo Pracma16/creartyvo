@@ -1,4 +1,4 @@
-:root{
+:root {
   --purpura: #9536B5;
   --naranja: #E68A37;
   --purpura-oscuro: #380955;
@@ -8,41 +8,37 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
 
-html{
-    box-sizing: border-box;
-    scroll-snap-type: y mandatory;
+html {
+  box-sizing: border-box;
+  scroll-snap-type: y mandatory;
 }
 
-*, *:before, *:after{
-    box-sizing: inherit;
+*, *:before, *:after {
+  box-sizing: inherit;
 }
 
 body {
-    text-decoration: none;
-    font-size: 16px;
-    margin:auto 0;
-    padding: 0;
-    font-family: "Nunito", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: weight;
-    font-style: normal;
-    overflow-x: hidden; 
+  font-size: 16px;
+  margin: 0;
+  padding: 0;
+  font-family: "Nunito", sans-serif;
+  overflow-x: hidden; 
 }
 
-.cortina-filtro{
+.cortina-filtro {
   height: 100vh;
   width: 100vw;
   position: fixed;
   top: 0;
   left: 0;
   background: #9737B8;
-  z-index: 0;
+  z-index: -1;
   opacity: .30;
 }
 
-.baner-principal{
+.baner-principal {
   position: fixed;
-  background-image: url('/utils/image/Creartyvo-media/logos_creartyvo/fondo-portada.png'); 
+  background-image: url('/utils/image/home/fondo-portada.png'); 
   background-position: center; 
   background-repeat: no-repeat; 
   background-size: cover;
@@ -50,9 +46,10 @@ body {
   height: 100%;
   min-height: 100vh;
   padding: 2%;
+  z-index: -1; 
 }
 
-.home-contenedor{
+.home-contenedor {
   display: flex;
   flex-direction: row;
   justify-content: center; 
@@ -60,22 +57,22 @@ body {
   position: relative;
 }
 
-.header-content{
-  margin-top: 5%;
+.header-content {
+  padding-top: 5%;
 }
 
-.container-logo{
+.container-logo {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
 
-.logo{
+.logo {
   width: 30%;
 }
 
-#text-container{
+#text-container {
   font-size: 34px;
   font-weight: bold;
   text-align: center;
@@ -85,7 +82,7 @@ body {
   box-sizing: border-box;
 }
 
-.container-enlaces{
+.container-enlaces {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -93,7 +90,12 @@ body {
   justify-content: space-evenly;
   margin-top: 5%;
   gap: 30px;
-  padding: 0;
+  padding-inline: 100px;
+}
+
+.container-enlaces a{
+  color: white;
+  text-decoration: none;
 }
 
 .neon-bg-button {
@@ -107,16 +109,14 @@ body {
   cursor: pointer;
   box-shadow: 0 0 5px #ffffff;
   transition: background-color 2s, box-shadow 0.5s;
-  }
+}
 
 .neon-bg-button:hover {
   color: rgb(44, 7, 44); 
-  background-color: #ff9900;
+  background-color: #db890e;
   box-shadow: 0 0 5px #E68A37, 0 0 10px #E68A37, 0 0 15px #E68A37, 0 0 20px #E68A37;
   transition: background-color 1s, box-shadow 0.5s;
 }
-
-/* Boton flotante*/
 
 .floating-button {
   background-color: #370954;
@@ -127,46 +127,37 @@ body {
   font-size: 16px;
   position: relative;
   display: inline-block;
-  
 }
 
 @keyframes elegant-move {
-
   0% {
-    transform: translateY(0);
+      transform: translateY(0);
   }
   50% {
       transform: translateY(10px);
   }
   100% {
-    transform: translateY(0);
-  } 
+      transform: translateY(0);
+  }
 }
 
-/*Trancisiones botones flotantes*/
-
-.floating1{
+.floating1 {
   animation: elegant-move 3s ease-in-out infinite;
-  transition: animation 0.5s;
-
 }
 
-.floating2{
+.floating2 {
   animation: elegant-move 4s ease-in-out infinite;
-  transition: animation 1s;
 }
 
-.floating3{
+.floating3 {
   animation: elegant-move 5s ease-in-out infinite;
-  transition: animation 0.7s;
-} 
+}
 
-.floating4{
+.floating4 {
   animation: elegant-move 4.5s ease-in-out infinite;
-  transition: animation 0.3s;
-} 
+}
 
-footer{
+footer {
   display: flex;
   justify-content: center;
   flex-direction: row;
@@ -180,150 +171,120 @@ footer img {
   transition: transform 0.3s ease;
 }
 
-footer img:hover{
+footer img:hover {
   transform: scale(1.2);
   box-shadow: 0 0 8px 10px rgba(255, 115, 0, 0.788);
   border-radius: 50%;    
   padding: 10%;             
 }
 
-.creartybot img{
+.creartybot img {
   position: fixed;
   bottom: -15px;
   right: 0;
   width: 15%;
   display: flex;
-  align-items:end;
-  justify-content:right ;
-  z-index: 1; /* Asegúrate de que el spinner esté sobre todos los demás elementos */
+  align-items: end;
+  justify-content: right;
+  z-index: 1;
 }
 
-.creartybot img:hover{
+.creartybot img:hover {
   background-color: rgba(128, 0, 128, 0.479);
   border-radius: 30% 20% 30% 50%;
   box-shadow: 0 2px 10px 10px rgba(152, 4, 165, 0.822);
 }
 
-/*Responsivos*/
+/* Responsivos */
 
 @media only screen and (min-width: 1024px) and (max-width: 1199px) {
   body {
-    font-size: 17px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
-    height: 100vh;
+      font-size: 17px;
   }
-  .container-enlaces{
-    flex-direction: row;
+  .container-enlaces {
+      flex-direction: row;
   }
-  footer{
-    padding: 10%;
-    margin-bottom: 10%;
+  footer {
+      padding: 10%;
+      margin-bottom: 10%;
   }
 }
 
 @media only screen and (min-width: 768px) and (max-width: 1023px) {
   body {
-    font-size: 16px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
-    overflow-x: hidden;
-    height: 100vh;
-  }
-  .container-enlaces{
-    flex-direction: row;
-  }
-  .header-content{
-    margin-top: 14%;
+      font-size: 16px;
   }
   .container-enlaces {
-    flex-direction: column;
-    gap: 30px;
+      flex-direction: column;
+      gap: 30px;
   }
   .neon-bg-button {
-    font-size: 23px;
-    padding: 5%;
+      font-size: 23px;
+      padding: 5%;
   }
   .floating-button {
-    padding: 12px 25px;
-    font-size: 20px;
+      padding: 12px 25px;
+      font-size: 20px;
   }
-  footer{
-    padding: 5%;
-    margin-bottom: 5%;
+  footer {
+      padding: 5%;
+      margin-bottom: 5%;
   }
 }
 
 @media only screen and (min-width: 481px) and (max-width: 767px) {
   body {
-    font-size: 15px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
-    overflow-x: hidden;
-    height: 100vh;
+      font-size: 15px;
   }
   .container-enlaces {
-    gap: 15px;
-    flex-direction: column;
+      gap: 15px;
+      flex-direction: column;
   }
   .neon-bg-button {
-    font-size: 16px;
-    padding: 3%;
+      font-size: 16px;
+      padding: 3%;
   }
   .floating-button {
-    padding: 10px 20px;
-    font-size: 20px;
+      padding: 10px 20px;
+      font-size: 20px;
   }
-  footer{
-    padding: 5%;
-    margin-bottom: 5%;
+  footer {
+      padding: 5%;
+      margin-bottom: 5%;
   }
 }
 
 @media only screen and (min-width: 320px) and (max-width: 480px) {
   body {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
-    overflow-x: hidden;
-    height: 100vh;
+      font-size: 14px;
   }
-  .container-enlaces{
-    gap: 50px;
-    flex-direction: column;
+  .container-enlaces {
+      gap: 50px;
+      flex-direction: column;
   }
-  .header-content{
-    margin-top: 5%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 40px;
+  .header-content {
+      padding-top: 15%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 40px;
   }
-  #text-container{
-    font-size: 20px;  
+  #text-container {
+      font-size: 20px;  
   }
-  .logo{
-    width: 60%;
+  .logo {
+      width: 60%;
   }
   .neon-bg-button {
-    font-size: 14px;
-    padding: 2%;
+      font-size: 14px;
+      padding: 2%;
   }
   .floating-button {
-    padding: 8px 15px;
-    font-size: 20px;
+      padding: 8px 15px;
+      font-size: 20px;
   }
-  footer{
-    padding: 5%;
-    margin-bottom: 5%;
+  footer {
+      padding: 5%;
+      margin-bottom: 5%;
   }
 }
-
-

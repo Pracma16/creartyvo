@@ -3,16 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Creartybot inteligencia artificial de google gemini-1.5-pro-latest con el proposito de dar respuesta a consultas de tecnologia.">
     <link rel="stylesheet" href="/css/ia.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-    <title>Creartybot</title>
+    <title>Creartybot -ia -prompt</title>
 </head>
 <body>
     <header>
-        <a href="/home.html">
-            <img class="flecha-atras" src="/utils/image/flecha2.png" alt="Flecha de regreso">
+        <a href="/index.html" aria-label="Regresar a la página principal de Creartyvo">
+            <img class="flecha-atras" src="/utils/image/flecha2.png" alt="Flecha de regreso pagina principal creartyvo">
         </a>
     </header>
     <div class="conten-bot">
@@ -21,12 +22,9 @@
             <input type="text" id="inputText" class="styled-input" placeholder="Preguntame de tecnologia..." value="">
             <button id="generateButton">Preguntar</button>
         </div>
-        <div class="conten-respuesta" id="responsesContainer">
-            <!-- Las respuestas generadas se mostrarán aquí -->
-        </div>
+        <div class="conten-respuesta" id="responsesContainer"></div>
         <div class="botones-menu">
-            <button id="copyButton">Copiar Respuesta</button> <!-- Botón para copiar -->
-            <button id="refreshButton">Actualiza</button>
+            <button id="copyButton">Copiar Respuesta</button>
             <button id="resetButton">Reiniciar Respuesta</button>
             <button id="saveButton">Guardar Respuesta</button>
         </div>
@@ -38,124 +36,68 @@
             }
         }
     </script>
+   
     <script type="module">
         import { GoogleGenerativeAI } from "@google/generative-ai";
-
+    
         const API_KEY = 'AIzaSyDYxmexiX7EmNsgWDzgGwcqFPKmUNhdQEQ';
         const genAI = new GoogleGenerativeAI(API_KEY);
-
+    
         const inputTextElement = document.getElementById('inputText');
         const responsesContainer = document.getElementById('responsesContainer');
         const spinnerOverlay = document.getElementById('spinnerOverlay');
         const generateButton = document.getElementById('generateButton');
-        const refreshButton = document.getElementById('refreshButton');
         const resetButton = document.getElementById('resetButton');
         const saveButton = document.getElementById('saveButton');
         const copyButton = document.getElementById('copyButton');
-        
-
-
-
-        generateButton.addEventListener('click', async () => {
-            const inputText = inputTextElement.value;
-            const model = genAI.getGenerativeModel({ model: "gemini-1.5-pro-latest"});
-            const prompt = inputText;
-
-            try {
-                const result = await model.generateContent(prompt);
-                const response = await result.response;
-                const responseText = response.text();
-
-                const responseParagraph = document.createElement('p');
-                responseParagraph.innerText = `Entrada: ${inputText}\nRespuesta: ${responseText}`;
-                responsesContainer.appendChild(responseParagraph);
-
-                saveConversation(inputText, responseText);
-            } catch (error) {
-                console.error('Error al generar contenido:', error);
-            }
-        });
-
-        refreshButton.addEventListener('click', () => {
-            location.reload();
-        });
-
-        resetButton.addEventListener('click', () => {
-            inputTextElement.value = '';
-            responsesContainer.innerHTML = '';
-            localStorage.removeItem('savedConversation');
-        });
-
-        generateButton.addEventListener('click', async () => {
+    
+        async function generateContent() {
             spinnerOverlay.classList.add('show');
-
+    
             const inputText = inputTextElement.value;
             const model = genAI.getGenerativeModel({ model: "gemini-1.5-pro-latest" });
             const prompt = inputText;
-
+    
             try {
                 const result = await model.generateContent(prompt);
-                const response = await result.response;
-                const responseText = response.text();
-
+                const response = await result.response.text(); 
+    
                 const responseParagraph = document.createElement('p');
-                responseParagraph.innerText = `Entrada: ${inputText}\nRespuesta: ${responseText}`;
+                responseParagraph.innerText = `Entrada: ${inputText}\nRespuesta: ${response}`;
                 responsesContainer.appendChild(responseParagraph);
-
-                saveConversation(inputText, responseText);
+    
+                saveConversation(inputText, response);
             } catch (error) {
                 console.error('Error al generar contenido:', error);
             } finally {
                 spinnerOverlay.classList.remove('show');
             }
+        }
+    
+        generateButton.addEventListener('click', generateContent);
+    
+        resetButton.addEventListener('click', () => {
+            inputTextElement.value = '';
+            responsesContainer.innerHTML = '';
+            localStorage.removeItem('savedConversation');
         });
-
-        saveButton.addEventListener('click', () => {
-            const inputText = inputTextElement.value;
-            const responses = Array.from(responsesContainer.getElementsByTagName('p')).map(p => p.innerText);
-            localStorage.setItem('savedConversation', JSON.stringify(responses));
-            alert('Conversación guardada temporalmente.');
-        });
-
+    
         copyButton.addEventListener('click', () => {
             const range = document.createRange();
             range.selectNode(responsesContainer);
             window.getSelection().removeAllRanges();
             window.getSelection().addRange(range);
-
+    
             try {
                 document.execCommand('copy');
                 alert('Texto copiado al portapapeles.');
-            } catch (err) {
+            } catch (error) {
                 console.error('Error al copiar al portapapeles:', error);
             }
-
+    
             window.getSelection().removeAllRanges(); // Remove selection after copy
         });
-
-        saveButton.addEventListener('click', () => {
-            const responses = Array.from(responsesContainer.getElementsByTagName('p'))
-                                .map(p => p.innerpdf)
-                                .join('\n'); // Join all responses with a newline
-
-            // Crear un blob con el contenido de las respuestas
-            const blob = new Blob([responses], { type: 'text/plain' });
-            
-            // Crear una URL para el blob
-            const url = URL.createObjectURL(blob);
-            
-            // Crear un enlace temporal para descargar el archivo
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = 'respuestas.txt'; // Nombre del archivo a descargar
-            document.body.appendChild(a);
-            a.click();
-            
-            // Limpiar
-            document.body.removeChild(a);
-            URL.revokeObjectURL(url); // Liberar el objeto URL
-        });
-
+    
         window.addEventListener('load', () => {
             const savedConversation = JSON.parse(localStorage.getItem('savedConversation'));
             if (savedConversation) {
@@ -166,15 +108,51 @@
                 });
             }
         });
-
+    
         function saveConversation(input, response) {
             const savedConversation = JSON.parse(localStorage.getItem('savedConversation')) || [];
             savedConversation.push(`Entrada: ${input}\nRespuesta: ${response}`);
             localStorage.setItem('savedConversation', JSON.stringify(savedConversation));
         }
+    
+        saveButton.addEventListener('click', () => {
+            // Usar jsPDF para generar el PDF
+            const { jsPDF } = window.jspdf;
+
+            // Crear una instancia de jsPDF
+            const doc = new jsPDF();
+
+            // Obtener el texto del área de respuestas
+            const inputText = inputTextElement.value;
+            const responses = Array.from(responsesContainer.getElementsByTagName('p'))
+                                    .map(p => p.innerText)
+                                    .join('\n'); // Unir todos los textos con un salto de línea
+
+            // Definir un margen
+            const margin = 10;
+
+            // Configurar el tamaño de la fuente
+            doc.setFontSize(12);
+
+            // Agregar la entrada
+            doc.text(`Entrada: ${inputText}`, margin, margin);
+
+            // Agregar la respuesta con ajuste de texto
+            const startY = margin + 10; // Ajustar la posición vertical de inicio
+            const textWidth = 190; // Ajustar el ancho máximo del texto en la página (ancho del PDF menos márgenes)
+            const lineHeight = 10; // Altura de línea (espacio entre líneas de texto)
+
+            doc.text(responses, margin, startY, { maxWidth: textWidth, lineHeightFactor: lineHeight / 10 });
+
+            doc.save('Respuesta-creartybot.pdf'); // Nombre predeterminado del archivo PDF
+        });
     </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+    
     <div id="spinnerOverlay" class="spinner-overlay">
         <div class="spinner"></div>
     </div>
+
 </body>
 </html>
