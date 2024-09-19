@@ -6,20 +6,10 @@
     --morazul: #6636B5;
 }
 
-@font-face {
-    font-family: "JFRocout";
-    src: url('/styles/fonts/JFRocOut.ttf');
-}
-
-@font-face {
-    font-family: "JFRocSol";
-    src: url('/styles/fonts/JFRocSol.TTF');
-}
 
 html {
     font-size: 62.5%;
     box-sizing: border-box;
-    scroll-snap-type: y mandatory;
     height: 100%;
     margin: 0;
 }
@@ -31,17 +21,27 @@ html {
 body {
     margin: 0;
     padding: 0;
-    font-family: Arial, sans-serif;
     height: 100vh;
-    background-color: aliceblue;
     overflow-x: hidden; 
+    font-family:  "Nunito", sans-serif;
 }
 
+.cortina-filtro {
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #3b0d4bf5;
+    opacity: .80;
+    z-index: 1;
+}
+
+
 .flecha-atras {
-    width: 50px;
+    width: 3rem;
     position: absolute;
-    margin-top: 2%;
-    margin-inline-start: 2%;
+    margin: 20px 0 0 20px;
     z-index: 9;
     cursor: pointer;
     transition: transform 0.3s ease;
@@ -53,7 +53,7 @@ body {
 
 .titulo-mapa h1{
     position: absolute;
-    font-family: "JFRocOut";
+    font-family:  "Nunito", sans-serif;
     top: 30px;
     left: 50%;
     transform: translateX(-50%);
@@ -75,6 +75,7 @@ body {
     width: 100%;
     height: 100%;
     overflow: hidden;
+
 }
 
 #interactive-map {
@@ -94,17 +95,15 @@ body {
     align-items:center;
     justify-content: center;
     flex-direction: column-reverse;
-    
+    z-index: 2;
 }
 
 .name-station{
-    background-color: #5508859c;
     color: white;
     font-size: 220%;
-    text-shadow: 1px 5px 8px rgba(0,0,0,0.98);
     margin: 0%;
     border-radius: 25%;
-    box-shadow: 0 0 10px 10px #5508859c;
+    font-family: 'Nunito', sans-serif;
 }
 
 .image-container {
@@ -123,22 +122,6 @@ position: relative;
 z-index: 1; /* Asegura que la imagen esté por encima del efecto */
 }
 
-.image-container::before {
-content: '';
-position: absolute;
-bottom: -15%; /* Ubica el efecto en la parte inferior de la imagen */
-left: 50%;
-transform: translateX(-50%);
-width: 100%;
-height: 80%;
-background: linear-gradient(65deg, rgb(155, 8, 155), rgba(255, 255, 255, 0.76), rgb(128, 8, 128));
-filter: blur(10px);
-border-radius: 50%;
-z-index: 0; /* Asegura que el efecto esté detrás de la imagen */
-animation: rotate 3s infinite linear;
-transform-style: preserve-3d;
-perspective: 1000px;
-}
 
 footer {
     position: absolute;
@@ -147,11 +130,11 @@ footer {
     justify-content: center;
     gap: 40px;
     width: 100%;
-    
+    z-index: 3;
 }
 
 footer img {    
-    width: 100%;
+    width: 30px;
     transition: transform 0.3s ease;
 }
 
@@ -163,20 +146,11 @@ footer img:hover {
 }
 
 
-
-@keyframes rotate {
-0% {
-    transform: translateX(-50%) rotateX(30deg) rotateZ(0deg);
-}
-100% {
-    transform: translateX(-50%) rotateX(30deg) rotateZ(360deg);
-}
-}
-
 .station img {
     width: 150px; /* Tamaño de la imagen */
     height: auto;
     border-radius: 50%;
+    max-width: 100px;
 }
 
 .station span {
@@ -186,10 +160,6 @@ footer img:hover {
     font-weight: 400;
 }
 
-.station:hover {
-    transform: translate(-50%, -50%) scale(2.0);
-    
-}
 
 /* Ubicaciones de las estaciones */
 #station-design {
@@ -213,6 +183,8 @@ footer img:hover {
 }
 
 /* Panel lateral */
+
+
 .side-panel {
     position: fixed;
     right: -100%;
@@ -222,7 +194,7 @@ footer img:hover {
     height: 100%;
     background-color: rgb(208, 190, 209);
     box-shadow: -2px 0 5px rgba(0, 0, 0, 0.3);
-    transition: right 0.3s ease;
+    transition: right 0.5s ease-in-out;
     z-index: 10;
     padding: 20px;
     overflow-y: auto;
@@ -252,7 +224,7 @@ footer img:hover {
     display: block;
     width: 100%;
     padding: 10px;
-    background-color: var(--purpura-oscuro);
+    background: var(--purpura-oscuro);
     color: #fff;
     border: none;
     border-radius: 5px;

@@ -60,3 +60,5 @@ sidePanel.addEventListener('touchend', (event) => {
         closePanel();
     }
 });
+
+

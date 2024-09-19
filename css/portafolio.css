@@ -2,16 +2,6 @@
     --naranja: #E68A37;
 }
 
-@font-face {
-    font-family: "JFRocout";
-    src: url('/styles/fonts/JFRocOut.ttf');
-}
-
-@font-face {
-    font-family: "JFRocSol";
-    src: url('/styles/fonts/JFRocSol.TTF');
-}
-
 *, *:before, *:after {
     box-sizing: border-box;
 }
@@ -19,7 +9,7 @@
 html, body {
     margin: 0;
     padding: 0;
-    height: 100%;
+    height: 100vh;
     overflow-x: hidden;
 }
 
@@ -34,11 +24,22 @@ html, body {
     z-index: -1;
 }
 
+.cortina-filtro {
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #3b0d4bf5;
+    opacity: .80;
+    z-index: -1;
+}
+
+
 .flecha-atras {
-    width: 60px;
-    position: absolute;  
-    top: 20px;
-    left: 20px;
+    width: 3rem;
+    position: relative;  
+    margin: 20px 0 0 20px;
     cursor: pointer;
     transition: transform 0.3s ease;
 }
@@ -52,26 +53,24 @@ html, body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    min-height: 100vh;
     padding: 20px;
 }
 
 .portafolio-contenedor {
-    max-width: 1200px;
     width: 100%;
-    padding: 20px;
     text-align: center;
 }
 
 .contenedor-titulo {
-    font-family: "JFRocout";
+    font-family: 'Nunito', sans-serif;
     color: var(--naranja);
-    margin-bottom: 20px;
+    margin-bottom: 60px;
 }
 
 .titulo-principal {
-    font-size: 2rem;
+    font-size: 2.5rem;
     margin: 0;
+    text-shadow: 1px 5px 8px rgba(0,0,0,0.98);
 }
 
 .contenedor-puertas {
@@ -79,6 +78,7 @@ html, body {
     flex-wrap: wrap;
     justify-content: center;
     gap: 20px;
+    margin-bottom: 20px;
 }
 
 .contenedor-puertas a {
@@ -99,7 +99,7 @@ footer {
     gap: 40px;
     padding: 20px;
     width: 100%;
-    margin-top: 40px;
+    margin-top: 20px;
 }
 
 footer img {
@@ -156,7 +156,9 @@ footer img:hover {
 
     .titulo-principal {
         font-size: 1.5rem;
-        padding: 10%;
+    }
+    .flecha-atras{
+        width: 40px;
     }
 
     footer {

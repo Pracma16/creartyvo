@@ -18,6 +18,15 @@ function changeText() {
 
 setInterval(changeText, 8000); // Cambia el texto cada 8 segundos
 
+// script.js
+
+document.addEventListener('DOMContentLoaded', () => {
+    const transitionElement = document.querySelector('.transition');
+    setTimeout(() => {
+        transitionElement.classList.add('closed');
+    }, 8000); // Tiempo de espera antes de iniciar la transición
+});
+
 
 
 

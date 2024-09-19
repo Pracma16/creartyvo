@@ -15,18 +15,14 @@ body {
     padding: 0;
     margin: 0;
     height: 100vh; /* Asegura que el cuerpo ocupe el 100% de la altura de la ventana */
-    overflow-x: hidden;
+    overflow: hidden;
 }
 
-header {
-    position: absolute;
-    top: 2%;
-    left: 2%;
-    z-index: 9;
-}
 
 .flecha-atras {
-    width: 3rem;
+    position: relative;
+    width: 2.3rem;
+    margin: 20px 0 0 20px;
     cursor: pointer;
     transition: transform 0.3s ease;
 }

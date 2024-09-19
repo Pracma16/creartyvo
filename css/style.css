@@ -31,9 +31,9 @@ body {
   position: fixed;
   top: 0;
   left: 0;
-  background: #9737B8;
+  background: #3b0d4bf5;
+  opacity: .80;
   z-index: -1;
-  opacity: .30;
 }
 
 .baner-principal {
@@ -90,7 +90,7 @@ body {
   justify-content: space-evenly;
   margin-top: 5%;
   gap: 30px;
-  padding-inline: 100px;
+  padding-inline: 50px;
 }
 
 .container-enlaces a{
@@ -178,22 +178,7 @@ footer img:hover {
   padding: 10%;             
 }
 
-.creartybot img {
-  position: fixed;
-  bottom: -15px;
-  right: 0;
-  width: 15%;
-  display: flex;
-  align-items: end;
-  justify-content: right;
-  z-index: 1;
-}
 
-.creartybot img:hover {
-  background-color: rgba(128, 0, 128, 0.479);
-  border-radius: 30% 20% 30% 50%;
-  box-shadow: 0 2px 10px 10px rgba(152, 4, 165, 0.822);
-}
 
 /* Responsivos */
 
@@ -274,6 +259,9 @@ footer img:hover {
   }
   .logo {
       width: 60%;
+  }
+  .creartybot img{
+    width: 40%;
   }
   .neon-bg-button {
       font-size: 14px;

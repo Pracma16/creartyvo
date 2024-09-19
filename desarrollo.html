@@ -8,50 +8,48 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/desarrollo.css">
+    <link rel="icon" href="/utils/image/home/creartybot.png" type="image/png">
     <title>Mapa interactivo -desarrollo web creartyvo</title>
 </head>
-<body>
+<body class="transition">
     <main class="container-desarrollo">
         <a href="/index.html" aria-label="Regresar a la página principal de Creartyvo">
-            <img class="flecha-atras" src="/utils/image/flecha2.png" alt="Flecha de regreso pagina principal creartyvo">
+            <img class="flecha-atras" loading="lazy" src="/utils/image/flecha2.png" alt="Flecha de regreso pagina principal creartyvo">
         </a>
 
         <div class="titulo-mapa">
             <h1>Asi hacemos Tu Web</h1>
         </div>
-
-        <div class="map-container">
-            <!-- Imagen del mapa -->
-            <img src="/utils/image/desarrollo/crater10.png" alt="Mapa Interactivo de desarrollo web" id="interactive-map">
+            <div class="cortina-filtro"></div> 
+            <img src="/utils/image/desarrollo/crater10.png" loading="lazy" alt="Mapa Interactivo de desarrollo web" id="interactive-map">
         
             <div class="station image-container" id="station-development" data-title="Desarrollo" data-content="Define funcionalidades de tu página web (formularios, tiendas online, galería, blog  etc.)        
             - Decide si necesitás bases de datos, esto en caso que quieras que se registren a tu pagina usuarios.
             - La web debe ser compatible con todos los dispositivos (computadoras, tablets, móviles)."  data-video="\utils\view\desarrollo-video.mp4" >
-                <img src="/utils/image/desarrollo/desarrollo.png" alt="imagen de desarrollo web de enlace para y lectura de pasos del desarrollo web"><p class="name-station">Desarrollo</p>
+                <img src="/utils/image/desarrollo/desarrollo.png" loading="lazy" alt="imagen de desarrollo web de enlace para y lectura de pasos del desarrollo web"><p class="name-station">Desarrollo</p>
                
                 <span>Desarrollo</span>
             </div>
             <div class="station image-container" id="station-maintenance" data-title="Seo" data-content="Identifica las palabras clave que mejor describan tu negocio para atraer visitantes.
             - Asi nos aseguramos que tu web cargue rápido y esté bien organizada para un mejor rendimiento en Google.
             - Para mejorar la visibilidad online, lo hacemos con enlaces y contenido de calidad." data-video="\utils\view\seo-video.mp4">
-                <img src="/utils/image/desarrollo/seo.png" alt="imagen de seo web en enlace para lectura de pasos del funsionamiento y como aplicar"><p class="name-station">Seo</p>
+                <img src="/utils/image/desarrollo/seo.png" loading="lazy" alt="imagen de seo web en enlace para lectura de pasos del funsionamiento y como aplicar"><p class="name-station">Seo</p>
                 <span>Seo</span>
             </div>
             <div class="station image-container" id="station-design" data-title="Diseño" data-content="Piensa en cómo quieres que se vea tu web (colores, estilo, gráficos).
             - Es importante tener una idea clara de la imagen de tu marca (logos, tipografías, etc.).
             - Considera la experiencia del usuario: la navegación debe ser facil de usar y agradable a la vista." data-video="\utils\view\Diseño-video.mp4">
-                <img src="/utils/image/desarrollo/diseño.png" alt="imagen de diseño web en enlace para lectura de como lo aplicamos"><p class="name-station">Diseño</p>
+                <img src="/utils/image/desarrollo/diseño.png" loading="lazy" alt="imagen de diseño web en enlace para lectura de como lo aplicamos"><p class="name-station">Diseño</p>
                 <span>Diseño</span>
             </div>
             <div class="station image-container" id="station-seo" data-title="Mantenimiento" data-content="Planificamos cómo  mantener tu web actualizada con nuevo contenido o funcionalidades.
             - Es fundamental tener un sistema de copias de seguridad y monitoreo regular.
             - Un plan para resolver problemas técnicos y proteger tu web contra amenazas de seguridad es indispensable." data-video="\utils\view\mantenimiento-video.mp4">
-                <img src="/utils/image/desarrollo/mantenimiento.png" alt="imagen de mantenimiento web en enlace para lectura explicando como realizamos un mantenimiento y que cubre"><p class="name-station">Mantenimiento</p>
+                <img src="/utils/image/desarrollo/mantenimiento.png" loading="lazy" alt="imagen de mantenimiento web en enlace para lectura explicando como realizamos un mantenimiento y que cubre"><p class="name-station">Mantenimiento</p>
                 <span>Mantenimiento</span>
             </div>
         </div>
 
-        <!-- Panel lateral de contenido dinámico -->
         <div class="side-panel" id="side-panel">
             <h2 id="panel-title">Título</h2>
             <p id="panel-content">Descripción detallada sobre la estación seleccionada</p>
@@ -63,11 +61,12 @@
         </div>  
     </main>
     <footer>
-        <a href="https://www.instagram.com/creartyvo/" target="_blank" rel="noopener noreferrer"><img src="/utils/image/home/instagram.png" alt="Enlace Instagram Creartyvo"></a>
-        <a href="https://www.facebook.com/JavierAndres1685?locale=es_LA" target="_blank" rel="noopener noreferrer"><img src="/utils/image/home/facebook.png" alt="Enlace Facebook Creartyvo"></a>
-        <a href="https://web.whatsapp.com/send?phone=5492954666712&text=Hola me comunico desde la web, quisiera recibir información por favor." target="_blank" rel="noopener noreferrer"><img src="/utils/image/home/whatsapp.png" alt="Enlace WhatsApp Creartyvo"></a>
-        <a href="https://www.linkedin.com/in/javier-programador/" target="_blank" rel="noopener noreferrer"><img src="/utils/image/home/linkedin.png" alt="Enlace LinkedIn Creartyvo"></a> 
+        <a href="https://www.instagram.com/creartyvo/" target="_blank" rel="noopener noreferrer"><img src="/utils/image/home/instagram.png" loading="lazy" alt="Enlace Instagram Creartyvo"></a>
+        <a href="https://www.facebook.com/JavierAndres1685?locale=es_LA" target="_blank" rel="noopener noreferrer"><img src="/utils/image/home/facebook.png" loading="lazy" alt="Enlace Facebook Creartyvo"></a>
+        <a href="https://web.whatsapp.com/send?phone=5492954666712&text=Hola me comunico desde la web, quisiera recibir información por favor." target="_blank" rel="noopener noreferrer"><img src="/utils/image/home/whatsapp.png" loading="lazy" alt="Enlace WhatsApp Creartyvo"></a>
+        <a href="https://www.linkedin.com/in/javier-programador/" target="_blank" rel="noopener noreferrer"><img src="/utils/image/home/linkedin.png" loading="lazy" alt="Enlace LinkedIn Creartyvo"></a> 
     </footer>
     <script src="/Js/desarrollo.js" defer></script>
 </body>
-</html>
+</html> 
+
